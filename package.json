@@ -1,0 +1,55 @@
+{
+  "private": false,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/charts": "^1.0.19",
+    "@ant-design/pro-layout": "^6.5.0",
+    "@uiw/react-amap": "^1.7.9",
+    "@umijs/hooks": "^1.9.3",
+    "@umijs/preset-react": "1.x",
+    "antd": "^4.13.0",
+    "axios": "^0.21.1",
+    "mobx": "^6.1.8",
+    "mobx-react-lite": "^3.2.0",
+    "mockjs": "^1.1.0",
+    "moment": "^2.29.1",
+    "styled-components": "^5.2.1",
+    "umi": "^3.2.9"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
+    "@umijs/test": "^3.3.9",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "typescript": "^4.1.2",
+    "yorkie": "^2.0.0"
+  },
+  "name": "dachui-weather-fe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "http://49.235.237.34:8000/",
+  "author": "wangming",
+  "license": "MIT"
+}
