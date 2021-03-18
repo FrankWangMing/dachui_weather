@@ -1,14 +1,14 @@
 pipeline {
   agent {
     node {
-      label 'dachui'
+      label 'node -v'
     }
 
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        node(label: 'node -v')
+        node(label: 'node  run build')
       }
     }
 
