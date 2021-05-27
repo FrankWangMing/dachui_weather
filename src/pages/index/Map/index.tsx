@@ -24,7 +24,7 @@ export const Map = observer(function ({ setPosition }: MapProps) {
       <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
         <GDMap
           mapStyle="'amap://styles/grey'"
-          zoom={6}
+          zoom={8}
           center={[120.153576, 30.287459]}
           onClick={(e) => {
             setPosition({ lng: e.lnglat.lng, lat: e.lnglat.lat });

@@ -87,6 +87,7 @@ export const Air = observer(function ({ data }: AirProp) {
     airconfig: airconfig,
     airAqi: data.aqi,
   }));
+  console.log(data.aqi);
   useUpdateEffect(() => {
     state.airconfig.map((item) =>
       Object.assign(item, {
@@ -99,7 +100,8 @@ export const Air = observer(function ({ data }: AirProp) {
     <Wrapper>
       <Title title={'空气质量'} />
       <div style={{ display: 'flex', height: '200px' }}>
-        <Liquid className="left_liquid" percent={state.airAqi} />
+        {console.log(state.airAqi)}
+        <Liquid className="left_liquid" percent={data.aqi / 500} />
         <div className="right_div">
           {state.airconfig.map((item, index) => {
             console.log(item.value);

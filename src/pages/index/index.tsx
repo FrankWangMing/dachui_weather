@@ -1,5 +1,6 @@
 import { Weather } from '@/../domain/Weather';
-import { Map } from '@/pages/index/Map';
+import { Map } from '@/pages/index/Map'; //kmngmf vmfvggm bmrkb hmfmfmfmc c mc dmnb wnwdnfjdkdsnc jdndnfnfmel.wnd  d,,md mcjkfnvjem vngrmnkn mfnj  lkr jrjr, c.,edmv,ev,freviof dkv fv xllmcdv efkldcmm false,x cmd vkf mv mf vfnvf v
+import Amap from '@/pages/index/Map/LMap';
 import styled from 'styled-components';
 import { Weather as WeatherCard } from './weather/Weather';
 import { Future } from './weather/Future';
@@ -14,11 +15,15 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   background-color: #faf5f5;
+  .slide_left {
+    position: relative;
+    width: calc(100vw - 300px);
+  }
   .slide_right {
     padding: 10px;
     overflow: hidden;
     overflow-y: scroll;
-    height: calc(100vh - 0px);
+    height: 100vh;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -40,32 +45,34 @@ export default observer(function IndexPage() {
   useUpdateEffect(() => {
     console.log('change');
     wt.getCity(`${store.lng},${store.lat}`).then((data) => {
-      state.city = data.data.location && data.data.location[0];
+      console.log(data);
+      data.data.location && (state.city = data.data.location[0]);
     });
     wt.getWeatherNow(`${store.lng},${store.lat}`).then((data) => {
-      state.nowWeather = data.data.now;
+      data.data.now && (state.nowWeather = data.data.now);
     });
     wt.getWeather({
       time: '/7d',
       location: `${store.lng},${store.lat}`,
     }).then((res) => {
-      console.log(res);
-      state.futureWeather = res.data.daily;
+      console.log(res.data.daily);
+      res.data.daily && (state.futureWeather = res.data.daily);
     });
     wt.getWeather({
       time: '/24h',
       location: `${store.lng},${store.lat}`,
     }).then((res) => {
-      console.log(res);
-      state.futureWeatheroneDay = res.data.hourly;
+      console.log(res.data.hourly);
+      if (res.data.code != '404') {
+        state.futureWeatheroneDay = res.data.hourly;
+      }
     });
     wt.getIndicesWeatherDay(`${store.lng},${store.lat}`).then((res) => {
       console.log(res.data.daily);
-      state.IndicesWeather = res.data.daily;
+      res.data.daily && (state.IndicesWeather = res.data.daily);
     });
     wt.getAir(`${store.lng},${store.lat}`).then((res) => {
-      console.log(res.data.now);
-      state.airData = res.data.now;
+      res.data.now && (state.airData = res.data.now);
     });
   }, [store.lat, store.lng]);
 
@@ -77,6 +84,9 @@ export default observer(function IndexPage() {
     <IndexContext.Provider value={store}>
       <Wrapper>
         <Map setPosition={store.setPosition} />
+        {/* <div className="slide_left">
+          <Amap />
+        </div> */}
         <div className="slide_right">
           <WeatherCard
             data={{
