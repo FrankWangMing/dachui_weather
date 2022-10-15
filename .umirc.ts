@@ -17,5 +17,4 @@ export default defineConfig({
     },
   ],
   fastRefresh: {},
-  publicPath: '/public/',
 });
