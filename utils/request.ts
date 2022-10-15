@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { WeatherKey } from '@/../const/config';
+import { WeatherKey } from '../public/config';
 
 export const http = axios.create({
   baseURL: 'https://devapi.qweather.com',

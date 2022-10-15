@@ -1,7 +1,6 @@
 import { observer, useLocalObservable, useLocalStore } from 'mobx-react-lite';
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
-import { IconFont } from '@/../const/iconfont';
 import { Col, Row } from 'antd';
 import moment from 'moment';
 import { useUpdateEffect } from '@umijs/hooks';
@@ -88,7 +87,12 @@ export const Weather = observer(function ({ data }: WeatherProp) {
               <div className="card_middle" style={{ fontSize: '45px' }}>
                 <div>
                   {data?.icon && (
-                    <img src={require(`@/../const/icon/${data?.icon}.png`)} />
+                    <img
+                      alt="QWeather"
+                      width="52"
+                      height="52"
+                      src={`icon/${data?.icon}.svg`}
+                    />
                   )}
                 </div>
               </div>

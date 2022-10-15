@@ -70,10 +70,7 @@ export const FutureoneDay = observer(function ({ data }: FutureoneDayProp) {
                   id="colorTem"
                   style={{ height: `${50 * item.temp * 0.02 + 30}px` }}
                 ></span>
-                <img
-                  style={{ width: '25px' }}
-                  src={require(`@/../const/icon/${item?.icon}.png`)}
-                />
+                <img style={{ width: '25px' }} src={`icon/${item?.icon}.svg`} />
                 <span style={{ fontSize: '10px' }}>
                   {moment(item.fxTime).format('HH:mm')}
                 </span>

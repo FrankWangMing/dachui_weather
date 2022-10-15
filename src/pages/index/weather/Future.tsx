@@ -65,14 +65,14 @@ export const Future = observer(function ({ data }: FutureProp) {
                 </span>
                 <img
                   style={{ width: '35px' }}
-                  src={require(`@/../const/icon/${item?.iconDay}.png`)}
+                  src={`icon/${item?.iconDay}.svg`}
                 />
                 <span>{item?.tempMax}°</span>
                 <span id="colorTem"></span>
                 <span>{item?.tempMin}°</span>
                 <img
                   style={{ width: '35px' }}
-                  src={require(`@/../const/icon/${item?.iconNight}.png`)}
+                  src={`icon/${item?.iconNight}.svg`}
                 />
               </div>
             </List.Item>
